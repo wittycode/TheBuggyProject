@@ -14,28 +14,28 @@ void LeftRotate(){
     	digitalWrite(7,LOW);
 }
 void RightRotate(){
-digitalWrite(5,HIGH);
+	digitalWrite(5,HIGH);
     	digitalWrite(6,LOW);
     	digitalWrite(8,LOW);
     	digitalWrite(7,HIGH);
 }
 void Forward(){
-digitalWrite(5,HIGH);
+	digitalWrite(5,HIGH);
     	digitalWrite(6,LOW);
     	digitalWrite(8,HIGH);
-   	 digitalWrite(7,LOW);
+   	digitalWrite(7,LOW);
 }
 void Backward(){
-digitalWrite(5,LOW);
+	digitalWrite(5,LOW);
     	digitalWrite(6, HIGH);
     	digitalWrite(8,LOW);
-   	 digitalWrite(7, HIGH);
+   	digitalWrite(7, HIGH);
 }
 void StandStill(){
-digitalWrite(5,LOW);
+	digitalWrite(5,LOW);
     	digitalWrite(6, LOW);
     	digitalWrite(8, LOW);
-   	 digitalWrite(7,LOW);
+   	digitalWrite(7,LOW);
 
 }
 void Sweep()
@@ -67,8 +67,8 @@ int ir1,ir2;
   {
     	//Forward();
 	Backward();
-    	 delay(DELAY);        
-//Sweep();    
+    	delay(DELAY);        
+	//Sweep();    
   }
   else if(ir1<CALIB_IR&&ir2>CALIB_IR)
   {
@@ -76,8 +76,8 @@ int ir1,ir2;
     	{
     	ir1 =analogRead(RIGHT_IR);	//left Turn
       	LeftRotate();
-    	 delay(DELAY);        
-Sweep();    
+    	delay(DELAY);        
+	Sweep();    
    	 }
   }
   else if(ir1>CALIB_IR&&ir2<CALIB_IR)
@@ -87,7 +87,7 @@ Sweep();
      	ir2=analogRead( LEFT_IR); 	//right Turn
     	RightRotate();
    	delay(DELAY);       
- Sweep();    
+ 	Sweep();    
     	} 
   }
   else if(ir1<CALIB_IR&&ir2<CALIB_IR)
@@ -95,7 +95,7 @@ Sweep();
     	counter++;
     	if(counter==6){
      		while(analogRead( LEFT_IR)<CALIB_IR&&analogRead(RIGHT_IR)>CALIB_IR)
-{
+		{
     			LeftRotate();
     		}
    	 }
@@ -104,10 +104,10 @@ Sweep();
    	 }
    	 else{
       		while(analogRead(LEFT_IR)>CALIB_IR&&analogRead(RIGHT_IR)<CALIB_IR)
-{
+		{
     			RightRotate();
-    			 delay(DELAY);        
-Sweep();    
+    			delay(DELAY);        
+			Sweep();    
       		}
     	}
  }
